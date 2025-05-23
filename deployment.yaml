@@ -2,6 +2,19 @@ apiVersion: apps/v1
 kind: Deployment
 metatdata:
   name: python-app
+  labels:
+    app: python-app
 spec:
-  image: rachanameda/streak-ai:latest
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: python-app
+  template:
+    metadata:
+      labels:
+        app: python-app 
+    spec:
+          containers:
+              name: rachanameda/streak-ai:latest
+              
   
